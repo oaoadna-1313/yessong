@@ -1,0 +1,907 @@
+# -*- coding: utf-8 -*-
+"""
+Generator script for 歌SONG臺灣 (Music Topography Interactive Teaching Platform)
+Based on gesong-web-teaching-platform & yuesilongmen-web-title-spec skills.
+Updated with:
+- 本土語言雙軌對照色彩規範（華語意譯原意＋台語正字紅標＋台羅拼音藍標，取消填空）for 晚安台灣
+"""
+import os, json
+
+taiwan_dir = r"C:\2026_歌SONG臺北\taiwan"
+os.makedirs(taiwan_dir, exist_ok=True)
+os.makedirs(os.path.join(taiwan_dir, "assets"), exist_ok=True)
+os.makedirs(os.path.join(taiwan_dir, "media"), exist_ok=True)
+
+songs_data = [
+    {
+        "id": "taiwan-heartbeat",
+        "title": "台灣的心跳聲",
+        "artist": "蔡依林 (Rap: 寇家瑞)",
+        "lyricist": "方文山",
+        "composer": "林邁可 (Michael Lin)",
+        "year": "2010-04",
+        "album": "2010上海世博會台灣館主題曲",
+        "tag": "土地脈動・文化縮影",
+        "order": "第一曲",
+        "sheet": "學習單 第一回",
+        "audio": "media/taiwan-heartbeat.mp3",
+        "video": "media/taiwan-heartbeat.mp4",
+        "bgGradient": "from-emerald-500 via-teal-600 to-cyan-700",
+        "lightBg": "bg-emerald-50/70 border-emerald-200",
+        "intro": "2010上海世博會台灣館主題曲。由方文山作詞、林邁可作曲、蔡依林演唱。以悠揚琴音與純淨歌聲揭開序幕，將永和豆漿、夜市、龍山寺老牆、棒球魂、嘉南平原、太魯閣、美濃紙傘、三義木雕、八家將、蜂炮與平溪天燈等豐富風貌交織成詩，側耳傾聽這塊土地最真實溫暖的心跳律動。",
+        "lyrics": [
+            [
+                {"t": "那長春籐"},
+                {"b": "攀", "h": "1字"},
+                {"t": "上生"},
+                {"b": "鏽", "h": "1字"},
+                {"t": "的消防栓  像蝴蝶離不開有花香的地方"}
+            ],
+            [
+                {"t": "寧靜的小巷 一杯永和豆漿  我在細細品嚐"},
+                {"b": "恬淡", "h": "2字"},
+                {"t": "的家鄉"}
+            ],
+            [
+                {"t": "霓虹燈點亮 關於夜市的想像  孩子們捉迷藏 在找愛吃的糖"}
+            ],
+            [
+                {"t": "昏黃的夕陽 龍山寺的老牆  我"},
+                {"b": "虔誠", "h": "2字"},
+                {"t": "點著香 手拿"},
+                {"b": "一炷", "h": "2字"},
+                {"t": "希望"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "少一點傷痕 多一點的掌聲  少一點戰爭 多一點的單純"}
+            ],
+            [
+                {"t": "認真用棒球魂 "},
+                {"b": "揮汗", "h": "2字"},
+                {"t": "去體會青春  用心聽著那台灣的心跳聲"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "(Rap ~ 嘉南平原等待收割 一整遍幸福的顏色  屏東黑鮪魚直接等於快樂"}
+            ],
+            [
+                {"t": "一路"},
+                {"b": "蜿蜒", "h": "2字"},
+                {"t": "的是淡水河  那"},
+                {"b": "陡峭", "h": "2字"},
+                {"t": "的是太魯閣  "},
+                {"b": "一派", "h": "2字"},
+                {"b": "樂天", "h": "2字"},
+                {"t": "的性格"}
+            ],
+            [
+                {"t": "美濃紙傘怎麼折 三義木雕怎麼刻  這塊土地上有很多很多的選擇"}
+            ],
+            [
+                {"t": "仔細看著"},
+                {"b": "八家將", "h": "3字"},
+                {"t": "的妝獨特  我說親愛的親愛的 我們故事說到這)"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "少一點仇恨 多一點的我們  少一點寒冷 多一點的"},
+                {"b": "溫存", "h": "2字"}
+            ],
+            [
+                {"t": "用"},
+                {"b": "狂草", "h": "2字"},
+                {"t": "寫"},
+                {"b": "雲門", "h": "2字"},
+                {"t": "  用"},
+                {"b": "蜂炮", "h": "2字"},
+                {"t": "築一座城  媽祖永恆世世代代的虔誠"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "天燈"},
+                {"b": "冉冉", "h": "2字"},
+                {"t": "上升  可以許下願望就別等"}
+            ]
+        ],
+        "vocab": [
+            {
+                "term": "攀",
+                "chars": [{"c": "攀", "z": "ㄆㄢ"}],
+                "meaning": "1. 抓住物體往上爬。如：「攀登」、「攀爬」、「攀樹」。 2. 依附。如：「高攀」。 3. 牽連、牽扯。如：「誣攀」、「攀扯」。 4. 摘、折。如：「攀折」。"
+            },
+            {
+                "term": "鏽",
+                "chars": [{"c": "鏽", "z": "ㄒㄧㄡˋ"}],
+                "meaning": "金屬表面所生的氧化物。如：「鐵鏽」、「銅鏽」。"
+            },
+            {
+                "term": "恬淡",
+                "chars": [{"c": "恬", "z": "ㄊㄧㄢˊ"}, {"c": "淡", "z": "ㄉㄢˋ"}],
+                "meaning": "心境安然淡泊，不慕名利。亦作「恬澹」。"
+            },
+            {
+                "term": "虔誠",
+                "chars": [{"c": "虔", "z": "ㄑㄧㄢˊ"}, {"c": "誠", "z": "ㄔㄥˊ"}],
+                "meaning": "恭敬而有誠心。"
+            },
+            {
+                "term": "炷",
+                "chars": [{"c": "炷", "z": "ㄓㄨˋ"}],
+                "meaning": "量詞。計算線香的單位。宋・蘇軾：「一炷清香盡日留。」"
+            },
+            {
+                "term": "揮汗",
+                "chars": [{"c": "揮", "z": "ㄏㄨㄟ"}, {"c": "汗", "z": "ㄏㄢˋ"}],
+                "meaning": "抹掉汗水。如：「烈日下，工程人員無不揮汗工作，加緊趕工。」"
+            },
+            {
+                "term": "蜿蜒",
+                "chars": [{"c": "蜿", "z": "ㄨㄢ"}, {"c": "蜒", "z": "ㄧㄢˊ"}],
+                "meaning": "曲折延伸的樣子。亦作「宛延」。"
+            },
+            {
+                "term": "陡峭",
+                "chars": [{"c": "陡", "z": "ㄉㄡˇ"}, {"c": "峭", "z": "ㄑㄧㄠˋ"}],
+                "meaning": "坡度很大、高直峻立。如：「這座山陡峭異常，攀爬時要多加注意。」"
+            },
+            {
+                "term": "一派",
+                "chars": [{"c": "一", "z": "ㄧ"}, {"c": "派", "z": "ㄆㄞˋ"}],
+                "meaning": "1. 具有相同特徵的一個類別或宗派。 2. 一片、呈現某種表象。如：「一派胡言」、「一派斯文」、「一派樂天」。"
+            },
+            {
+                "term": "樂天",
+                "chars": [{"c": "樂", "z": "ㄌㄜˋ"}, {"c": "天", "z": "ㄊㄧㄢ"}],
+                "meaning": "順應自然之理，安於處境，樂觀而不憂傷。《孟子》：「以大事小者，樂天者也。」"
+            },
+            {
+                "term": "八家將",
+                "chars": [{"c": "八", "z": "ㄅㄚ"}, {"c": "家", "z": "ㄐㄧㄚ"}, {"c": "將", "z": "ㄐㄧㄤˋ"}],
+                "meaning": "陰曹鬼役。在臺灣迎神賽會中，常見由八人裝扮成八位鬼役，有如官府家將，列隊於主神駕前，舞蹈遊行，以驅除惡鬼，警惕世人。"
+            },
+            {
+                "term": "溫存",
+                "chars": [{"c": "溫", "z": "ㄨㄣ"}, {"c": "存", "z": "ㄘㄨㄣˊ"}],
+                "meaning": "溫柔、體貼撫慰。"
+            },
+            {
+                "term": "狂草",
+                "chars": [{"c": "狂", "z": "ㄎㄨㄤˊ"}, {"c": "草", "z": "ㄘㄠˇ"}],
+                "meaning": "1. 一種草書。漢末張芝首創，唐代張旭、懷素廣為盛行。筆勢狂放不拘，連綿迴繞。 2. 《狂草》亦為雲門舞集2005年獲獎舞作。"
+            },
+            {
+                "term": "雲門",
+                "chars": [{"c": "雲", "z": "ㄩㄣˊ"}, {"c": "門", "z": "ㄇㄣˊ"}],
+                "meaning": "借指「雲門舞集」，林懷民先生創立之現代舞團，將中西舞蹈兼容並蓄，揚名國際。"
+            },
+            {
+                "term": "蜂炮",
+                "chars": [{"c": "蜂", "z": "ㄈㄥ"}, {"c": "炮", "z": "ㄆㄠˋ"}],
+                "meaning": "將數萬枝火燄沖天炮排列在木架上的蜂巢炮陣。點燃時沖天炮向四方奔竄飛舞如群蜂出巢。臺南鹽水元宵蜂炮最負盛名。"
+            },
+            {
+                "term": "冉冉",
+                "chars": [{"c": "冉", "z": "ㄖㄢˇ"}, {"c": "冉", "z": "ㄖㄢˇ"}],
+                "meaning": "緩慢行進、徐徐升起的樣子。《醒世恆言》：「忽見月影下，一青衣冉冉而來。」"
+            }
+        ],
+        "reading": {
+            "title": "世博台灣館主題曲與創作紀實",
+            "sections": [
+                {
+                    "subtitle": "📰【新聞】世博台灣館聽見「台灣心跳聲」",
+                    "content": "2010年上海世博會台灣館主題曲「台灣心跳聲」正式曝光，由金曲獎最佳作詞人方文山、作曲家林邁可和亞洲天后蔡依林共同打造，要讓所有走進台灣館的民眾，側耳聽到台灣土地最真實的心跳律動。『許個願吧！』從蔡依林請願開始，鋼琴鋪陳出對台灣的想像，方文山在歌詞中呈現永和豆漿、夜市、龍山寺老牆、黑鮪魚、八家將、蜂炮與天燈，找到大眾共同的記憶。副歌中『少一點傷痕、多一點的掌聲、少一點戰爭、多一點的單純』，激盪出土地正向溫暖的力量。"
+                },
+                {
+                    "subtitle": "✍️【聽聽方文山怎麼說】台灣的心跳聲創作隨筆",
+                    "content": "方文山分享：『我真的很認真去瀏覽網路上大家的評論，發現我們台灣人真的很可愛，大家對這塊土地有太多的牽掛與感動。於是忍不住提筆重寫了第二版歌詞，將苗栗桐花祭、高雄愛河、原住民朋友與珍珠奶茶都寫入歌詞，展現更全面的風土民情：\n\n「桐花落在地上 剩葉子在牽絆 遊子離開家鄉 有母親的呼喚\n幽靜的月光 倒映在愛河上 你陪在我身旁 牽手過堤岸\n布袋戲上場 演著童年的時光 珍珠奶茶的香 已經是種習慣\n日出望玉山 這塊土地金黃 原住民朋友唱 他們歌聲嘹亮」』"
+                }
+            ]
+        }
+    },
+    {
+        "id": "on-the-road",
+        "title": "在旅行的路上",
+        "artist": "徐佳瑩",
+        "lyricist": "方文山",
+        "composer": "徐佳瑩",
+        "year": "2013-08",
+        "album": "桃園國際機場第一航廈主題曲",
+        "tag": "國門之歌・旅人行囊",
+        "order": "第二曲",
+        "sheet": "學習單 第二回",
+        "audio": "media/on-the-road.mp3",
+        "video": "media/on-the-road.mp4",
+        "bgGradient": "from-sky-500 via-blue-600 to-indigo-700",
+        "lightBg": "bg-sky-50/70 border-sky-200",
+        "intro": "桃園國際機場第一航廈主題曲，昇恆昌免稅商店邀請金曲歌后徐佳瑩、作詞大師方文山與葛萊美獎設計大師蕭青陽聯手打造。從福爾摩沙的海風、客家桐花與擂茶、平溪天燈、鹽水蜂炮，到原住民豐年祭、蘭陽平原、玉山曙光與愛河夕陽，將台灣土地的壯麗風光與人情溫暖化為出境旅人心中最美的牽掛。",
+        "lyrics": [
+            [
+                {"t": "美麗的"},
+                {"b": "福爾摩沙", "h": "4字"},
+                {"t": "  海風輕輕地"},
+                {"b": "颳", "h": "1字"},
+                {"t": "  風箏抵抗風沙 不願放手的是牽掛"}
+            ],
+            [
+                {"t": "繽紛的客家桐花 如雨 落下  喝杯家鄉的擂茶 我重溫家鄉話"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "平溪"},
+                {"b": "冉冉", "h": "2字"},
+                {"t": "的天燈 說好了不離分  廟會的"},
+                {"b": "宋江陣", "h": "3字"},
+                {"t": " 熱鬧了"},
+                {"b": "久違", "h": "2字"},
+                {"t": "的我們"}
+            ],
+            [
+                {"t": "鹽水"},
+                {"b": "蜂炮", "h": "2字"},
+                {"t": "不轉彎 一起 勇敢  "},
+                {"b": "八家將", "h": "3字"},
+                {"t": "在"},
+                {"b": "震撼", "h": "2字"},
+                {"t": " 用傳統 的力量"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "在旅行的路上 有些事我們慢慢講  有個熱情的地方 名字叫 台灣"}
+            ],
+            [
+                {"t": "原住民歌聲"},
+                {"b": "嘹亮", "h": "2字"},
+                {"t": " 迴盪在東海岸  小米酒飄香 豐年祭裡我"},
+                {"b": "淺嚐", "h": "2字"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "太平洋是一整遍 蔚藍色的面  蘭嶼的風鹹鹹 有飛魚最深的"},
+                {"b": "眷戀", "h": "2字"}
+            ],
+            [
+                {"t": "我們從雪山"},
+                {"b": "遠眺", "h": "2字"},
+                {"t": " 蘭陽 平原  噶瑪蘭故事"},
+                {"b": "蜿蜒", "h": "2字"},
+                {"t": " 在"},
+                {"b": "蔥綠", "h": "2字"},
+                {"t": "的稻田"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "日出我們登玉山 太麻里望"},
+                {"b": "曙光", "h": "2字"},
+                {"t": "  那愛河碼頭上 說好了一起看夕陽"}
+            ],
+            [
+                {"t": "手中的珍珠奶茶 甜蜜 喝下  夜市裡的"},
+                {"b": "喧譁", "h": "2字"},
+                {"t": " 讓我們 想起家"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "在旅行的路上 有些事我們慢慢講  有個熱情的地方 名字叫 台灣"}
+            ],
+            [
+                {"t": "歌仔戲"},
+                {"b": "粉墨登場", "h": "4字"},
+                {"t": " 演歷史的過往  布袋戲拉回 一段 童年的時光"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "在旅行的路上 有些事我們慢慢講  有個熱情的地方 名字叫 台灣"}
+            ],
+            [
+                {"t": "我們將腳步放慢 聊著天在路上  你行李裝滿 "},
+                {"b": "遠赴", "h": "2字"},
+                {"t": "他鄉的夢想"}
+            ],
+            [
+                {"type": "space"}
+            ],
+            [
+                {"t": "在旅行的路上 有些事我們慢慢講  有個熱情的地方 名字叫 台灣"}
+            ],
+            [
+                {"t": "我用思念在"},
+                {"b": "醞釀", "h": "2字"},
+                {"t": " 牢記你的模樣  揮揮手再見 祝你 旅途平安"}
+            ]
+        ],
+        "vocab": [
+            {
+                "term": "福爾摩沙",
+                "chars": [{"c": "福", "z": "ㄈㄨˊ"}, {"c": "爾", "z": "ㄦˇ"}, {"c": "摩", "z": "ㄇㄛˊ"}, {"c": "沙", "z": "ㄕㄚ"}],
+                "meaning": "葡萄牙語 Formosa 的音譯，意為「美麗之島」。16世紀葡萄牙船員航經臺灣時發出讚嘆，此後成為臺灣在國際上的雅稱。"
+            },
+            {
+                "term": "颳",
+                "chars": [{"c": "颳", "z": "ㄍㄨㄚ"}],
+                "meaning": "[動詞] 吹襲。如：「颳風」、「大風把樹颳倒了」。"
+            },
+            {
+                "term": "冉冉",
+                "chars": [{"c": "冉", "z": "ㄖㄢˇ"}, {"c": "冉", "z": "ㄖㄢˇ"}],
+                "meaning": "緩慢升起或行進的樣子。"
+            },
+            {
+                "term": "宋江陣",
+                "chars": [{"c": "宋", "z": "ㄙㄨㄥˋ"}, {"c": "江", "z": "ㄐㄧㄤ"}, {"c": "陣", "z": "ㄓㄣˋ"}],
+                "meaning": "臺灣民間廟會著名武術陣頭，融合水滸傳武打與陣式防衛，兼具祈安護鄉與文化傳承意義。"
+            },
+            {
+                "term": "久違",
+                "chars": [{"c": "久", "z": "ㄐㄧㄡˇ"}, {"c": "違", "z": "ㄨㄟˊ"}],
+                "meaning": "客套話，指睽違已久、好久不見。《老殘遊記》：「補翁，補翁，久違的很了！」"
+            },
+            {
+                "term": "震撼",
+                "chars": [{"c": "震", "z": "ㄓㄣˋ"}, {"c": "撼", "z": "ㄏㄢˋ"}],
+                "meaning": "震動搖撼，帶來強烈的精神或視覺衝擊。相似詞：震盪、震動。"
+            },
+            {
+                "term": "嘹亮",
+                "chars": [{"c": "嘹", "z": "ㄌㄧㄠˊ"}, {"c": "亮", "z": "ㄌㄧㄤˋ"}],
+                "meaning": "聲音清澈高遠而響亮。相反詞：低沉、沙啞。"
+            },
+            {
+                "term": "淺嚐",
+                "chars": [{"c": "淺", "z": "ㄑㄧㄢˇ"}, {"c": "嚐", "z": "ㄔㄤˊ"}],
+                "meaning": "稍微品味。比喻初次體驗或略作涉獵（如「淺嚐即止」）。"
+            },
+            {
+                "term": "眷戀",
+                "chars": [{"c": "眷", "z": "ㄐㄩㄢˋ"}, {"c": "戀", "z": "ㄌㄧㄢˋ"}],
+                "meaning": "深切思慕、難以割捨的留戀情感。《紅樓夢》：「柳湘蓮見尤三姐身亡，痴情眷戀。」"
+            },
+            {
+                "term": "遠眺",
+                "chars": [{"c": "遠", "z": "ㄩㄢˇ"}, {"c": "眺", "z": "ㄊㄧㄠˋ"}],
+                "meaning": "向遠方眺望。相反詞：近觀。"
+            },
+            {
+                "term": "蜿蜒",
+                "chars": [{"c": "蜿", "z": "ㄨㄢ"}, {"c": "蜒", "z": "ㄧㄢˊ"}],
+                "meaning": "曲折延伸的樣子。相反詞：筆直。"
+            },
+            {
+                "term": "蔥綠",
+                "chars": [{"c": "蔥", "z": "ㄘㄨㄥ"}, {"c": "綠", "z": "ㄌㄩˋ"}],
+                "meaning": "如青蔥般鮮嫩翠綠的顏色。如：「蔥綠的稻田」。"
+            },
+            {
+                "term": "曙光",
+                "chars": [{"c": "曙", "z": "ㄕㄨˋ"}, {"c": "光", "z": "ㄍㄨㄤ"}],
+                "meaning": "1. 清晨大地初現的晨光。 2. 比喻嶄新的希望或轉機。相反詞：晚霞。"
+            },
+            {
+                "term": "喧譁",
+                "chars": [{"c": "喧", "z": "ㄒㄩㄢ"}, {"c": "譁", "z": "ㄏㄨㄚˊ"}],
+                "meaning": "大聲喧鬧、嘈雜歡騰。亦作「諠譁」。相反詞：寧靜、肅靜。"
+            },
+            {
+                "term": "粉墨登場",
+                "chars": [{"c": "粉", "z": "ㄈㄣˇ"}, {"c": "墨", "z": "ㄇㄛˋ"}, {"c": "登", "z": "ㄉㄥ"}, {"c": "場", "z": "ㄔㄤˊ"}],
+                "meaning": "原指戲劇演員化妝打扮上臺演出，後引申為人物登上舞臺公開亮相或任職。"
+            },
+            {
+                "term": "遠赴",
+                "chars": [{"c": "遠", "z": "ㄩㄢˇ"}, {"c": "赴", "z": "ㄈㄨˋ"}],
+                "meaning": "前往遙遠的地方。如：「遠赴他鄉追求夢想」。"
+            },
+            {
+                "term": "醞釀",
+                "chars": [{"c": "醞", "z": "ㄩㄣˋ"}, {"c": "釀", "z": "ㄋㄧㄤˋ"}],
+                "meaning": "原指釀造酒類，後引申為事情在發展過程中逐漸形成或做好準備。"
+            }
+        ],
+        "reading": {
+            "title": "國門文化之歌——桃園機場第一航廈蛻變紀實",
+            "sections": [
+                {
+                    "subtitle": "🛫【背景】昇恆昌與大師聯手 打造向世界發聲的國門之歌",
+                    "content": "桃園機場第一航廈歷經三年翻修蛻變，從外觀到內裝煥然一新。昇恆昌免稅商店特別邀請入圍金曲最佳國語女歌手的徐佳瑩作曲演唱、金曲填詞人方文山作詞，並由葛萊美獎入圍唱片設計大師蕭青陽操刀視覺包裝，共同催生這首【在旅行的路上】。"
+                },
+                {
+                    "subtitle": "🌏【核心意象】行李箱裝載的不是物品，而是土地的牽掛",
+                    "content": "這首歌巧妙串連臺灣東南西北的人文景緻：從東海岸原住民歌聲、太麻里曙光、蘭陽平原稻田，到平溪天燈、客家桐花、鹽水蜂炮、八家將，再到夜市的珍珠奶茶、歌仔戲與布袋戲。旅人帶著裝滿夢想的行李遠行，而土地的溫度與親切的家鄉話，則是心中永遠的行囊。"
+                }
+            ]
+        }
+    },
+    {
+        "id": "goodnight-taiwan",
+        "title": "晚安台灣",
+        "artist": "滅火器樂團 (Fire EX.)",
+        "lyricist": "楊大正",
+        "composer": "楊大正",
+        "year": "2009-10",
+        "album": "海上的人 專輯",
+        "tag": "時代之聲・溫柔守護",
+        "order": "第三曲",
+        "sheet": "學習單 第三回",
+        "audio": "media/goodnight-taiwan.mp3",
+        "video": "media/goodnight-taiwan.mp4",
+        "bgGradient": "from-amber-600 via-orange-600 to-rose-700",
+        "lightBg": "bg-amber-50/70 border-amber-200",
+        "intro": "滅火器樂團最具代表性的抒情搖滾鉅作。2008年楊大正因對政局與未來的焦慮失眠，在木吉他伴奏下創作出這首真摯祈願之歌。「烏暗伊總會過去，日頭一出來猶原閣是好天氣」，從街頭傳唱至太陽花運動現場，更在總統府音樂會磅礴演出，成為撫慰台灣人民心靈、守護民主與土地的重要心聲。",
+        "lyrics": [
+            # A段 主歌 1
+            [
+                {
+                    "t": '<span class="w-5 h-5 rounded bg-emerald-100 text-emerald-800 text-xs font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">A</span>在這安靜的夜晚 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[佇這个安靜的暗暝]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "tī tsit-ê an-tsīng ê àm-mî",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>我知道你有心事睡不著 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[我知影你有心事睏袂去]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "guá tsai-iánn lí ū sim-sū khùn buē khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>想到你的過去受盡欺凌折磨 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[想著你的過去受盡凌治]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "siūnn-tio̍h lí ê kuè-khì siū tsīn lîng-tī",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>辛苦艱難好多年 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[艱苦真濟年]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "kan-khóo tsin tsuē nî",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {"type": "space"}
+            ],
+            # B段 主歌 2
+            [
+                {
+                    "t": '<span class="w-5 h-5 rounded bg-emerald-100 text-emerald-800 text-xs font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">B</span>在這安靜的夜晚 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[佇這个安靜的暗暝]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "tī tsit-ê an-tsīng ê àm-mî",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>我知道你有心事睡不著 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[我知影你有心事睏袂去]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "guá tsai-iánn lí ū sim-sū khùn buē khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>煩惱你的未來要往哪裡去 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[煩惱你的未來欲對佗位去]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "huân-ló lí ê bī-lâi beh tuì tuē khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>幸福在哪裡 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[幸福佇佗位]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "hīng-hok tī tó-uī",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {"type": "space"}
+            ],
+            # 副歌 1
+            [
+                {
+                    "t": '<span class="px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 text-[11px] font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">副歌</span>啊～啊 黑暗它總會過去 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[啊～啊 烏暗伊總會過去]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ah~ah, oo-àm i tsóng ē kuè-khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>太陽一出來依然又是好天氣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[日頭一出來猶原閣是好天氣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ji̍t-thâu tsi̍t tshut-lâi iu-guân koh sī hó thinn-khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>你有一個美麗的名字 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[你有一个美麗的名字]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "lí ū tsi̍t ê bí-lē ê miâ-jī",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {"type": "space"}
+            ],
+            # 副歌 2 - 天公伯保庇
+            [
+                {
+                    "t": '<span class="px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 text-[11px] font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">副歌</span>啊～啊 老天爺總會保佑 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[啊～啊 天公伯總會保庇]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ah~ah, Thinn-kong-peh tsóng ē pó-pì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>太陽一出來依然又是好天氣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[日頭一出來猶原閣是好天氣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ji̍t-thâu tsi̍t tshut-lâi iu-guân koh sī hó thinn-khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>願你平安 臺灣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[願你平安 臺灣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "guān lí pîng-an, Tâi-uân",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {"type": "space"}
+            ],
+            # 副歌 3 - 復唱
+            [
+                {
+                    "t": '<span class="px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 text-[11px] font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">副歌</span>啊～啊 黑暗它總會過去 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[啊～啊 烏暗伊總會過去]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ah~ah oo-àm i tsóng ē kuè-khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>太陽一出來依然又是好天氣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[日頭一出來猶原閣是好天氣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ji̍t-thâu tsi̍t tshut-lâi iu-guân koh sī hó thinn-khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>你有一個美麗的名字 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[你有一个美麗的名字]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "lí ū tsi̍t ê bí-lē ê miâ-jī",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {"type": "space"}
+            ],
+            # 副歌 4 - 祝禱
+            [
+                {
+                    "t": '<span class="px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 text-[11px] font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">副歌</span>啊～啊 天公伯總會保佑 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[啊～啊 天公伯總會保庇]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ah~ah, Thinn-kong-peh tsóng ē pó-pì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>太陽一出來依然又是好天氣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[日頭一出來猶原閣是好天氣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "ji̍t-thâu tsi̍t tshut-lâi iu-guân koh sī hó thinn-khì",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {"type": "space"}
+            ],
+            # 尾聲 - 祈願
+            [
+                {
+                    "t": '<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[11px] font-bold inline-flex items-center justify-center mr-1.5 select-none font-sans">尾聲</span>願你平安 臺灣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[願你平安 臺灣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "guān lí pîng-an, Tâi-uân",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ],
+            [
+                {
+                    "t": '<span class="text-emerald-500 font-bold mr-1.5 select-none">•</span>願你順利如意 臺灣 ',
+                    "cls": "font-serif text-slate-800 font-medium inline-flex items-center"
+                },
+                {
+                    "t": "[願你順遂 臺灣]",
+                    "cls": "font-serif font-bold text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs mx-1 inline-block"
+                }
+            ],
+            [
+                {
+                    "t": "guān lí sūn-suī, Tâi-uân",
+                    "lineCls": "lyric-tailo-line text-blue-600 font-sans font-medium text-sm sm:text-base tracking-wider pl-6 sm:pl-7 -mt-0.5 mb-2.5 flex items-center gap-1.5",
+                    "cls": "inline-block text-blue-600 font-sans font-medium"
+                }
+            ]
+        ],
+        "vocab": [
+            {
+                "term": "順遂",
+                "chars": [{"c": "順", "z": "ㄕㄨㄣˋ"}, {"c": "遂", "z": "ㄙㄨㄟˋ"}],
+                "meaning": "稱心如意、平安無阻。如：「諸事順遂」。台羅發音為 sūn-suī。"
+            },
+            {
+                "term": "凌治",
+                "chars": [{"c": "凌", "z": "ㄌㄧㄥˊ"}, {"c": "治", "z": "ㄉㄧ˫"}],
+                "meaning": "台語（lîng-tī），欺凌、折磨、受盡苦難與屈辱。"
+            },
+            {
+                "term": "暗暝",
+                "chars": [{"c": "暗", "z": "ㄢˋ"}, {"c": "暝", "z": "ㄇㄧˊ"}],
+                "meaning": "台語（àm-mî），黑夜、深夜。"
+            },
+            {
+                "term": "睏袂去",
+                "chars": [{"c": "睏", "z": "ㄎㄨㄣ˪"}, {"c": "袂", "z": "ㄊㄜ˫"}, {"c": "去", "z": "ㄎㄧ˪"}],
+                "meaning": "台語（khùn buē khì），失眠、輾轉反側睡不著。"
+            },
+            {
+                "term": "真濟年",
+                "chars": [{"c": "真", "z": "ㄐㄧㄣ"}, {"c": "濟", "z": "ㄗㄨㄝ˫"}, {"c": "年", "z": "ㄋㄧˊ"}],
+                "meaning": "台語（tsin tsuē nî），好多年、漫長歲月。「濟」為許多、豐富之意。"
+            },
+            {
+                "term": "佗位",
+                "chars": [{"c": "佗", "z": "ㄉㄜˋ"}, {"c": "位", "z": "ㄨㄧ˫"}],
+                "meaning": "台語（tó-uī），哪裡、何處。「對佗位去」即「往何處去」。"
+            },
+            {
+                "term": "烏暗",
+                "chars": [{"c": "烏", "z": "ㄛ"}, {"c": "暗", "z": "ㄢ˪"}],
+                "meaning": "台語（oo-àm），黑暗、陰暗，象徵困境與黑夜。"
+            },
+            {
+                "term": "猶原閣是",
+                "chars": [{"c": "猶", "z": "ㄧㄨ"}, {"c": "原", "z": "ㄍㄨㄢˊ"}, {"c": "閣", "z": "ㄍㄜˋ"}, {"c": "是", "z": "ㄒㄧ˫"}],
+                "meaning": "台語（iu-guân koh sī），依然又是、依然還是。「日頭一出來猶原閣是好天氣」比喻黑夜過去黎明重現。"
+            },
+            {
+                "term": "天公伯",
+                "chars": [{"c": "天", "z": "ㄊㄧㄣ"}, {"c": "公", "z": "ㄍㄨㄥ"}, {"c": "伯", "z": "ㄅㄟˋ"}],
+                "meaning": "台語（Thinn-kong-peh），老天爺、玉皇大帝，常民最親切敬仰的神明化身。"
+            },
+            {
+                "term": "保庇",
+                "chars": [{"c": "保", "z": "ㄅㄜˋ"}, {"c": "庇", "z": "ㄅㄧ˫"}],
+                "meaning": "台語（pó-pì），保佑、庇佑。"
+            }
+        ],
+        "reading": {
+            "title": "滅火器《海上的人》十週年——〈晚安台灣〉改變樂團生涯",
+            "sections": [
+                {
+                    "subtitle": "🎸【誕生契機】深夜失眠的木吉他 寫給受傷土地的溫柔禱詞",
+                    "content": "楊大正回憶：2008年政局紛亂時期，選舉結果底定當晚，他因為憂鬱失眠，拿起木吉他寫了這首歌。團員一開始覺得『很不滅火器』，但決定放手嘗試，沒想到打破大家對滅火器衝撞叛逆的既定印象，開啟了兼具熱血與深情的新篇章。"
+                },
+                {
+                    "subtitle": "🕊️【蝴蝶效應】從街頭傳唱至總統府音樂會",
+                    "content": "〈晚安台灣〉帶來了一連串蝴蝶效應：從街頭傳唱至學運現場，更在2014年催生出榮獲金曲年度最佳歌曲的〈島嶼天光〉，今年更受邀在總統府音樂會磅礴演出。大正感性說：『你永遠不知道你在創作這首歌時，這首歌會把你帶到哪裡。』十年過去，滅火器始終用最真誠的心，為這塊土地創作撫慰人心的歌聲。"
+                }
+            ]
+        }
+    }
+]
+
+# Save JSON file
+with open(os.path.join(taiwan_dir, "songs_data.json"), "w", encoding="utf-8") as f:
+    json.dump(songs_data, f, ensure_ascii=False, indent=2)
+
+print("Saved songs_data.json successfully with dual-track language for goodnight-taiwan")
